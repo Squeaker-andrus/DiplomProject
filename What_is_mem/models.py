@@ -9,12 +9,19 @@ class Rooms(models.Model):
 
 class Inventory(models.Model):
     user = User.username
-    items = models.BigAutoField(null=True)
+    itemname = models.TextField()
+    quantity = models.BigIntegerField(null=True)
+
+class SpecialCards(models.Model):
+    itemname = models.TextField
+    visual = models.ImageField()
+
 
 class Questions(models.Model):
     question = models.TextField
 
 class Cards(models.Model):
+    cardname = models.TextField
     card = models.ImageField()
 
 class Rank(models.Model):
