@@ -1,0 +1,41 @@
+{% extends 'basic.html' %}
+
+
+
+{% block content %}
+
+    {% block title %}<h3>Create new thread</h3>{% endblock %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-check">
+            <label for="title">Title</label>
+
+                <input id="title" type="text" aria-describedby="invalid-title" name="title" placeholder="{% if title == "" %}Нет заголовка{% else %}Thread title{% endif %}" class="form-control
+                        {% if title == "" %}is-invalid{% endif %}"
+                        value="{{ title }}">
+                    {% if title == "" %}
+                        <div id="invalid-title" class="invalid-feedback">
+                            Впишите заголовк!
+                        </div>
+                    {% endif %}
+        </div>
+
+        <div class="form-check">
+            <label for="content">Content</label>
+
+                <textarea id="content" aria-describedby="invalid-content" name="content" placeholder="{% if content == "" %}Нет контента{% else %}Thread content{% endif %}" class="form-control
+                          {% if content == "" %}is-invalid{% endif %}">{{ content }}</textarea>
+                    {% if content == "" %}
+                        <div id="invalid-content" class="invalid-feedback">
+                            Хоть что-нибудь напишите!
+                        </div>
+                    {% endif %}
+        </div>
+        <div>
+            <button type="Submit" class="btn-dark">Bling</button>
+
+        </div>
+
+    </form>
+    {% block extra %}{% endblock %}
+{% endblock %}
