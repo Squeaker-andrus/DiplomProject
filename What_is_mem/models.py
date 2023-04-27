@@ -4,16 +4,16 @@ from django.contrib.auth.models import User
 
 class Rooms(models.Model):
     title = models.TextField()
-    unclude_users = User.username
+    unclude_users = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(default=datetime.now())
 
 class Inventory(models.Model):
-    user = User.username
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     itemname = models.TextField()
     quantity = models.BigIntegerField(null=True)
 
 class SpecialCards(models.Model):
-    itemname = models.TextField
+    itemname = models.TextField()
     visual = models.ImageField()
 
 
@@ -21,13 +21,13 @@ class Questions(models.Model):
     question = models.TextField
 
 class Cards(models.Model):
-    cardname = models.TextField
+    cardname = models.TextField()
     card = models.ImageField()
 
 class Rank(models.Model):
-    user = User.username
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     rank = models.PositiveIntegerField(default=0)
 
 class Suggestions(models.Model):
-    sug_user = User.username
+    sug_user = models.ForeignKey(User, on_delete=models.CASCADE)
     suggestion = models.TextField(max_length=400)

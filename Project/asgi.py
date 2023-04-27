@@ -1,5 +1,5 @@
 """
-ASGI config for Project project.
+ASGI config for DiplomProject project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

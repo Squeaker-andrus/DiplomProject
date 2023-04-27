@@ -1,5 +1,5 @@
 """
-WSGI config for Project project.
+WSGI config for DiplomProject project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
