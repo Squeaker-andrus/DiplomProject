@@ -2,3 +2,6 @@ django 4.2
 mysqlclient
 mysql-connector-python
 Pillow
+aiohttp
+aiohttp-jinja2
+aiohttp-session

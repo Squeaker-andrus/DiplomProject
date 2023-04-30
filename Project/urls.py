@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from What_is_mem import views
 
 urlpatterns = [
-   path('admin/', admin.site.urls),
+   path('admin/', admin.site.urls, name="admin_page"),
    # path('/', name="basic"),
-   # path('/login', name="login"),
-   # path('/register', name="register"),
+   path('/login', views.LogIn, name="login"),
+   path('/register', views.Register, name="register"),
    # path('/rooms', name="rooms"),
    # path('/room', name="room"),
    # path('/person', name="private_page"),
