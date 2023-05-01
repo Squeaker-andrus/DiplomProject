@@ -20,9 +20,9 @@ from What_is_mem import views
 
 urlpatterns = [
    path('admin/', admin.site.urls, name="admin_page"),
-   # path('/', name="basic"),
-   path('/login', views.LogIn, name="login"),
-   path('/register', views.Register, name="register"),
+   path('', views.index_first_page, name="basic"),
+   path('login/', views.LogIn, name="login"),
+   path('register/', views.Register, name="register"),
    # path('/rooms', name="rooms"),
    # path('/room', name="room"),
    # path('/person', name="private_page"),

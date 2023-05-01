@@ -14,6 +14,10 @@ from .models import Rooms, Inventory, Rank, Suggestions
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 
+
+def index_first_page(request):
+    return render(request, "first_pattern/first_page.html")
+
 async def encrypt_password(password):
     hashed_password = make_password(password)
     return hashed_password
@@ -21,7 +25,7 @@ async def encrypt_password(password):
 
 class LogIn(web.View):
 
-    @aiohttp_jinja2.template("users/login.html")
+    @aiohttp_jinja2.template("first_pattern/sign-in.html")
     async def login(self, request):
         if request.method == 'GET':
             return {}
@@ -66,11 +70,11 @@ class Logout(web.View):
 
 def show_rooms(request):
     all_rooms = Rooms.objects.all()
-    return render(request, "main_page.html", {"rooms": all_rooms})
+    return render(request, "second_pattern/main_page.html", {"rooms": all_rooms})
 
 def show_users(request):
     all_users = User.objects.all()
-    return render(request, "main_page.html", {"users": all_users})
+    return render(request, "second_pattern/main_page.html", {"users": all_users})
 
 def create_room(request):
     data = {}
