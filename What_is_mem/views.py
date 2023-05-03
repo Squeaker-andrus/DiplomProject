@@ -9,36 +9,21 @@ from aiohttp.web_request import Request
 from aiohttp_session import Session
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
-from django.http import HttpResponseNotAllowed
+from django.http import HttpResponseNotAllowed, HttpResponse
 from .models import Rooms, Inventory, Rank, Suggestions
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 
 
 def index_first_page(request):
-    return render(request, "first_pattern/first_page.html")
+    return render(request, 'first_pattern/first_page.html', {})
 
 async def encrypt_password(password):
     hashed_password = make_password(password)
     return hashed_password
 
 
-class LogIn(web.View):
 
-    @aiohttp_jinja2.template("first_pattern/sign-in.html")
-    async def login(self, request):
-        if request.method == 'GET':
-            return {}
-        elif request.method == 'POST':
-            data = await request.post()
-            username = data.get('username')
-            password = encrypt_password(data.get('password'))
-            user = authenticate(request, username=username, password=password)
-            if user is not None and user.is_active:
-                login(request, user)
-                return redirect('/')
-            else:
-                return {'error': 'Неверное имя пользователя или пароль'}
 
 
 class Register(web.View):
