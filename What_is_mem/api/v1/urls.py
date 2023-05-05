@@ -6,6 +6,6 @@ from . import views
 # API V1
 
 urlpatterns = [
-    path("login/", views.SignIn.as_view(), name="login"),
-    path("regist/", LoginView.as_view(template_name="first_pattern/registrate.html"), name="registrate")
+    path("login/", views.login_user, name="log_in"),
+    path("regist/", views.registrate_user, name="registrate_in")
 ]

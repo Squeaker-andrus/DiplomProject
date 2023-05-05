@@ -18,40 +18,6 @@ from django.contrib.auth.hashers import make_password
 def index_first_page(request):
     return render(request, 'first_pattern/first_page.html', {})
 
-async def encrypt_password(password):
-    hashed_password = make_password(password)
-    return hashed_password
-
-
-
-
-
-class Register(web.View):
-
-    @aiohttp_jinja2.template("users/register.html")
-    async def register(self, request):
-        if request.method == 'GET':
-            return {}
-        elif request.method == 'POST':
-            data = await request.post()
-            username = data.get('username', '').lower()
-            row_password = data.get('password', '')
-            if not re.match(r'^[a-z]\w{0,9}$', username) and not re.match(r'^[a-z]\w{0,9}$', row_password):
-                return ""
-            else:
-                password = await encrypt_password(row_password)
-                await User.save(username=username, password=password)
-                login(request, User(username=username))
-                return redirect('/')
-
-
-class Logout(web.View):
-    pass
-    #@login_required
-    #async def get(self):
-    #    self.request.session.pop("user_id")
-    #    redirect(self.request, "home")
-
 
 def show_rooms(request):
     all_rooms = Rooms.objects.all()
