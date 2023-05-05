@@ -1,6 +1,6 @@
 import unittest
 from .. import models
-from What_is_mem.api.v1.views import SignIn
+from What_is_mem.api.v1.views import login_user, registrate_user
 from django.test import TestCase
 from django.test.client import RequestFactory
 from django.contrib.auth.models import User
@@ -10,7 +10,7 @@ class TestLogIn(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
         self.user = User.objects.create_user(username="test", password="test123")
-        self.view = SignIn()
+        self.view = registrate_user()
 
     def test_login_get(self):
         request = self.factory.get("/login/")

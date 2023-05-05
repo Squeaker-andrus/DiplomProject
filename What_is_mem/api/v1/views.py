@@ -42,6 +42,7 @@ def login_user(request):
         else:
             return render(request, "first_pattern/sign-in.html", {"form": form})
 
+
 def registrate_user(request):
     if request.method == "GET":
         form = UserRegistration()
