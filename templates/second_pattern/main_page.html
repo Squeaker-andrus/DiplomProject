@@ -1,4 +1,4 @@
-{% extends "bacic.html" %}
+{% extends "basic.html" %}
 
     {% block content %}
 
@@ -50,60 +50,61 @@
 
 
           <div class="flex-shrink-0 p-3" style="width: 280px;">
-            <a href="/static" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-              <svg class="bi pe-none me-2" width="30" height="24"><use href="#bootstrap"/></svg>
-              <span class="fs-5 fw-semibold">Collapsible</span>
+            <a href="{% url "home" %}" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+                <img class="mb-4" src="/static/img/pop-cat.gif" alt="" width="60" height="48">
+              <svg class="bi pe-none me-2" width="30" height="24"></svg>
+              <span class="fs-5 fw-semibold">#Что_за_мем?</span>
             </a>
             <ul class="list-unstyled ps-0">
               <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                  Home
+                  Игра
                 </button>
                 <div class="collapse show" id="home-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Создать комнату</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Найти комнату</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Настройки моих комнат</a></li>
                   </ul>
                 </div>
               </li>
               <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                  Dashboard
+                  Коммуникация
                 </button>
                 <div class="collapse" id="dashboard-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Мои друзья</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Сообщения</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Позвать готовых игроков</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Стать готовым игроком</a></li>
                   </ul>
                 </div>
               </li>
               <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                  Orders
+                  Условности
                 </button>
                 <div class="collapse" id="orders-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">ЛВЛ</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Челенджи</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Инвентарь</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Правила игры</a></li>
                   </ul>
                 </div>
               </li>
               <li class="border-top my-3"></li>
               <li class="mb-1">
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                  Account
+                  Аккаунт
                 </button>
                 <div class="collapse" id="account-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-                    <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-                    <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
-                    <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
+                    <li><a href="{% url "show_profile" %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Мой профиль</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Уведомления</a></li>
+                    <li><a href="{% url "update_profile" %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Настройки</a></li>
+                    <li><a href="{% url "logout" %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Выход</a></li>
                   </ul>
                 </div>
               </li>
@@ -114,8 +115,8 @@
 
           <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary" style="width: 380px;">
             <a href="/static" class="d-flex align-items-center flex-shrink-0 p-3 link-body-emphasis text-decoration-none border-bottom">
-              <svg class="bi pe-none me-2" width="30" height="24"><use href="#bootstrap"/></svg>
-              <span class="fs-5 fw-semibold">List group</span>
+              <svg class="bi pe-none me-2" width="30" height="24"><use href="/static/img/pop-cat.gif"/></svg>
+              <span class="fs-5 fw-semibold">Список комнат</span>
             </a>
             <div class="list-group list-group-flush border-bottom scrollarea">
               <a href="#" class="list-group-item list-group-item-action active py-3 lh-sm" aria-current="true">

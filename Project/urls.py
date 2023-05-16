@@ -22,8 +22,8 @@ urlpatterns = [
    path('admin/', admin.site.urls, name="admin_page"),
    path('', views.index_first_page, name="basic"),
    path('api/v1/', include("What_is_mem.api.v1.urls")),
-   path('home/', views.show_rooms, name="home")
-   # path('rooms/', name="rooms"),
+   path('home/', views.show_rooms, name="home"),
+   path('profile/', include("Costomise.api.v1.urls")),
    # path('room/', name="room"),
    # path('person/', name="private_page"),
 

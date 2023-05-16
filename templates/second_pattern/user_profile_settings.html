@@ -1,0 +1,75 @@
+{% extends "basic.html" %}
+
+{% block content %}
+
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="/static/img/pop-cat.gif" alt="" width="72" height="57">
+      <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Форма оформления заказа</font></font></h2>
+      <p class="lead"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ниже приведен пример формы, полностью созданной с помощью элементов управления формой Bootstrap. </font><font style="vertical-align: inherit;">Каждая обязательная группа форм имеет состояние проверки, которое может быть вызвано попыткой отправить форму без ее заполнения.</font></font></p>
+    </div>
+
+    <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Настройки профиля</font></font></h4>
+        {% csrf_token %}
+        <form method="POST" class="needs-validation" novalidate="">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="first_name" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Имя</font></font></label>
+              <input type="text" class="form-control" id="first_name" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Это точно имя?
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="last_name" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Фамилия</font></font></label>
+              <input type="text" class="form-control" id="last_name" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Это точно фамилия?
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="user_pick" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Аватар</font></font></label>
+              <div class="input-group has-validation">
+                  <form action="" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="user_pick" class="w-20 btn btn-primary btn-lg" id="user_pick" >
+                  </form>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Электронная почта </font></font><span class="text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(необязательно)</font></font></span></label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Да разве это емэйл?
+              </div>
+            </div>
+            <div class="col-md-5">
+              <label for="country" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Страна</font></font></label>
+                <select class="form-select" id="country" required="">
+                  <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Выбирать...</font></font></option>
+                  <option><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Соединенные Штаты</font></font></option>
+                </select>
+                <div class="invalid-feedback">
+                  Введите страну
+                </div>
+            </div>
+            <div class="col-12">
+              <label for="age" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Возраст</font></font></label>
+              <input type="number" class="form-control{% if age < 0 and age > 120 %}is-invalid{% endif %}" id="age" required="">
+              <div class="invalid-feedback">
+                Да не гони...
+              </div>
+            </div>
+
+            <div class="form-check">
+              <label for="about" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">О себе</font></font></label>
+                <textarea id="about" aria-describedby="invalid-content" name="about" placeholder="" class="form-control"></textarea>
+            </div>
+          </div>
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">АГА!</font></font></button>
+        </form>
+      </div>
+{% endblock %}

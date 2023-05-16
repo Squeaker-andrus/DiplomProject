@@ -1,0 +1,33 @@
+{% extends "basic.html" %}
+
+{% block content %}
+    <div class="col-auto">
+         <img src="{{ player_info.user_pick }}" alt="" height="200" width="200">
+    </div>
+    <div class="col-sm-6">
+        <label for="firstName" class="form-label"><use style="vertical-align: inherit;">{{ player_info.first_name }}</use></label>
+    </div>
+
+    <div class="col-sm-6">
+        <label for="lastName" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ player_info.last_name }}</font></font></label>
+    </div>
+
+    <div class="col-12">
+        <label for="username" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ player_info.country }}</font></font></label>
+    </div>
+
+    <div class="col-12">
+        <label for="email" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ player_info.email }}</font></font></label>
+    </div>
+
+    <div class="col-12">
+        <label for="address" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ player_info.age }}</font></font></label>
+    </div>
+
+            <div class="col-12">
+              <label for="address2" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ player_info.about }}</font></font></label>
+            </div>
+
+
+
+{% endblock %}
