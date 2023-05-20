@@ -7,12 +7,10 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse, HttpResponseForbidden
 
 
-
-
-
 def player_info(request):
     all_info = Player.objects.get(user_id=request.session.get('_auth_user_id'))
     return render(request, "second_pattern/user_profile.html", {"player_info": all_info})
+
 
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = Player
@@ -22,7 +20,7 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_object(self):
         print(self.request.POST)
-        return self.request.user
+        return self.request.user.player
 
     def form_valid(self, form):
         if form.instance.user != self.request.user:

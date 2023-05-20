@@ -1,0 +1,8 @@
+{% extends "second_pattern/creation_room.html" %}
+{% block extra %}
+
+    <form action="{% url "delete_room" room_id %}" method="post">
+        {% csrf_token %}
+        <input class="w-50 btn btn-lg btn-danger" type="submit" value="Дропнуть" onclick="return confirm('Точно удаляем?')">
+    </form>
+{% endblock %}

@@ -46,72 +46,8 @@
         </svg>
 
         <main class="d-flex flex-nowrap">
-          <h1 class="visually-hidden">{% block title %}Главная страница{% endblock %}</h1>
-
-
-          <div class="flex-shrink-0 p-3" style="width: 280px;">
-            <a href="{% url "home" %}" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-                <img class="mb-0" src="/static/img/pop-cat.gif" alt="" width="60" height="66">
-              <svg class="bi pe-none me-2" width="30" height="24"></svg>
-              <span class="fs-5 fw-semibold">#Что_за_мем?</span>
-            </a>
-            <ul class="list-unstyled ps-0">
-              <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                  Игра
-                </button>
-                <div class="collapse show" id="home-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="{% url "create_room" %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Создать комнату</a></li>
-                    <li><a href="{% url "rooms" %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Найти комнату</a></li>
-                    <li><a href="{% url "my_rooms" %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Настройки моих комнат</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                  Коммуникация
-                </button>
-                <div class="collapse" id="dashboard-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Мои друзья</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Сообщения</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Позвать готовых игроков</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Стать готовым игроком</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                  Условности
-                </button>
-                <div class="collapse" id="orders-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">ЛВЛ</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Челенджи</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Инвентарь</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Правила игры</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="border-top my-3"></li>
-              <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                  Аккаунт
-                </button>
-                <div class="collapse" id="account-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="{% url "show_profile" %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Мой профиль</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Уведомления</a></li>
-                    <li><a href="{% url "update_profile" %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Настройки</a></li>
-                    <li><a href="{% url "logout" %}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Выход</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="b-example-divider b-example-vr"></div>
+            <h1 class="visually-hidden">{% block title %}Главная страница{% endblock %}</h1>
+        <div class="b-example-divider b-example-vr"></div>
 
           <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary" style="width: 380px;">
             <a href="{% url "rooms" %}" class="d-flex align-items-center flex-shrink-0 p-3 link-body-emphasis text-decoration-none border-bottom">
@@ -126,7 +62,6 @@
                       <strong class="mb-1">{{ room.title }}</strong>
                     </div>
                     <div class="col-10 mb-1 small">Создано {{ room.created }}</div>
-                    <div class="col-10 mb-1 small">Создал {{ room.creator }}</div>
                   </a>
                 {% endfor %}
             </div>
@@ -138,5 +73,5 @@
         <script src="/static/js/bootstrap.bundle.min.js"></script>
 
         <script src="/static/js/sidebars.js"></script>
-  </body>
+    </body>
     {% endblock %}

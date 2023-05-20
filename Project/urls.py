@@ -24,7 +24,7 @@ urlpatterns = [
    path('api/v1/', include("What_is_mem.api.v1.urls")),
    path('home/', views.show_rooms, name="home"),
    path('profile/', include("Costomise.api.v1.urls")),
-   # path('room/', name="room"),
+   path('rooms/', include("GameRooms.api.v1.urls")),
    # path('person/', name="private_page"),
 
 ]

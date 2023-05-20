@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 
 class Rooms(models.Model):
     title = models.TextField()
-    unclude_users = models.ForeignKey(User, on_delete=models.CASCADE)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="creator", null=False)
+    include_users = models.ForeignKey(User, on_delete=models.CASCADE, related_name="includers", null=True)
     created = models.DateTimeField(default=datetime.now())
 
 class Inventory(models.Model):
