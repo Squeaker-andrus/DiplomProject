@@ -2,7 +2,8 @@
 
 {% block content %}
     <div class="col-auto">
-         <img src="{{ player_info.user_pick }}" alt="" height="200" width="200">
+    {% load static %}
+         <img src="{% static player_info.user_pick.url %}" alt="" height="200" width="200">
     </div>
     <div class="col-sm-6">
         <label for="firstName" class="form-label"><use style="vertical-align: inherit;">{{ player_info.first_name }}</use></label>
